@@ -1,0 +1,26 @@
+﻿@model Dojodachi.Models.Dachi
+@using Microsoft.AspNetCore.Http
+
+<div id="index">
+    <h4 id="currstats">
+        Fullness: @Model.Fullness    Happiness: @Model.Happiness   Meals: @Model.Meals    Energy: @Model.Energy
+    </h4>
+    <div id="ddbox">
+        <img alt = "dachipic" class="myimg" src="~/images/@ViewBag.Pic">
+        <h5>@ViewBag.Response</h5>
+    </div>
+    <div id="buttons">
+        @{
+            if((@Model.Energy>100 && @Model.Fullness>100 && @Model.Happiness>100) || (@Model.Fullness <=0 || @Model.Happiness <=0))
+            {
+                <a class="btn btn-primary btn-sm" href="restart">Restart?</a>
+            }
+            else{
+                <a class="btn btn-primary btn-sm" href="feed">Feed</a>
+                <a class="btn btn-primary btn-sm" href="play">Play</a>
+                <a class="btn btn-primary btn-sm" href="work">Work</a>
+                <a class="btn btn-primary btn-sm" href="sleep">Sleep</a>
+            }
+        }
+    </div>
+</div>
